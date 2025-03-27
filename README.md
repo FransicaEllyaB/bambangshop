@@ -62,8 +62,8 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement subscribe function in Notification service.`
     -   [x] Commit: `Implement subscribe function in Notification controller.`
     -   [x] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -99,5 +99,23 @@ pattern instead?
 Aplikasi BambangShop menggunakan multi-threading, sehingga DashMap lebih cocok dibandingkan dengan Singleton Pattern. DashMap adalah thread-safe HashMap yang memungkinkan akses data secara bersamaan (concurrent access) tanpa risiko race condition. Sementara itu, Singleton Pattern hanya memastikan satu instance objek, tetapi tidak secara otomatis mendukung akses multi-threading dengan aman. Jika menggunakan Singleton dengan HashMap biasa, kita perlu menambahkan mekanisme locking untuk mencegah konflik antar-thread, yang dapat meningkatkan kompleksitas program dan berpotensi menyebabkan deadlock. Oleh karena itu, DashMap adalah pilihan yang lebih efisien dan aman untuk mengelola data SUBSCRIBERS dalam lingkungan multi-threading.
 
 #### Reflection Publisher-2
+> In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”.
+Model in MVC covers both data storage and business logic. Explain based on your
+understanding of design principles, why we need to separate “Service” and “Repository” from
+a Model?
+
+Salah satu prinsip, yaitu SRP (Single Responsibility Principle) yang merupakan sebuah class hanya boleh berfungsi sesuai dengan kelasnya sehingga kita perlu memisahkan Service dan Repository dari Model. Dengan memisahkan service dan repository dari model, kita bisa memisahkan antara business logic dan data access sehingga lebih mudah digunakan untuk dites dan di-_debug_.
+
+> What happens if we only use the Model? Explain your imagination on how the interactions
+between each model (Program, Subscriber, Notification) affect the code complexity for
+each model?
+
+Jika kita hanya menggunakan Model untuk menangani semua tugas, kita akan menghadapi kompleksitas yang meningkat, ketergantungan yang tinggi, dan kesulitan dalam pengujian dan pemeliharaan. Pembagian tanggung jawab antara Service, Repository, dan Model akan mengurangi kompleksitas, mempermudah pengujian dan memudahkan pemeliharaan kode dalam jangka panjang. Sebaliknya, jika semuanya digabungkan dalam Model, kita akan membuat sistem yang sulit dikelola dan tidak fleksibel terhadap perubahan dan skala.
+
+> Have you explored more about Postman? Tell us how this tool helps you to test your current
+work. You might want to also list which features in Postman you are interested in or feel like it
+is helpful to help your Group Project or any of your future software engineering projects.
+
+Dengan Postman, saya bisa menguji endpoint API secara langsung, mengirim berbagai jenis permintaan HTTP, serta mengatur parameter dan header yang diperlukan. Postman memungkinkan pengujian otomatis dengan collections yang mengorganisir permintaan-permintaan API, serta memudahkan pengujian di berbagai environment. Dalam proyek tim, Postman sangat membantu dalam kolaborasi, memungkinkan berbagi collections dan dokumentasi API secara mudah. Fitur integrasi CI/CD juga memungkinkan pengujian otomatis selama proses build, memastikan stabilitas API. Dengan semua fitur ini, Postman sangat mendukung pengujian API, kolaborasi antar anggota tim, serta memudahkan pemeliharaan aplikasi dalam proyek pengembangan perangkat lunak.
 
 #### Reflection Publisher-3
